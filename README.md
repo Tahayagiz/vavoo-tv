@@ -20,3 +20,4 @@ Dieses Projekt ist für den universellen Build (CLI oder GitHub Actions) optimie
 - Gerät: Nokia Streaming Box 8010
 - Architektur: armeabi-v7a (32-bit)
 - Android Version: 14 (API 34)
+ 
