@@ -26,11 +26,14 @@ jobs:
       run: chmod +x gradlew
 
     - name: Build Debug APK
-      run: ./gradlew assembleDebug
+  run: ./gradlew assembleDebug
 
-    - name: Upload APK
-      uses: actions/upload-artifact@v4
-      with:
-        name: vavoo-tv-debug-apk
-        path: app/build/outputs/apk/debug/app-debug.apk
-        if-no-files-found: error
+- name: Find APK
+  run: find . -name "*.apk"
+
+- name: Upload APK
+  uses: actions/upload-artifact@v4
+  with:
+    name: vavoo-tv-debug-apk
+    path: '**/*.apk'
+    if-no-files-found: error
