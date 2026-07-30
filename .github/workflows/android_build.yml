@@ -31,15 +31,3 @@ jobs:
 
     - name: Find APK files
       run: find . -type f -name "*.apk"
-
-    - name: List build folder
-      run: |
-        ls -R app/build || true
-
-    - name: Upload APK
-      uses: actions/upload-artifact@v4
-      with:
-        name: vavoo-tv-debug-apk
-        path: |
-          **/*.apk
-        if-no-files-found: error
