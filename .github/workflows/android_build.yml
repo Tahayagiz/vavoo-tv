@@ -22,11 +22,13 @@ jobs:
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
 
-      - name: Grant execute permission for gradlew
-        run: chmod +x gradlew
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.2'
 
       - name: Build Debug APK
-        run: ./gradlew assembleDebug --stacktrace
+        run: gradle assembleDebug --stacktrace
 
       - name: List generated APKs
         run: find . -name "*.apk" -type f
@@ -35,6 +37,8 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: Vavoo-TV-APK
-          path: app/build/outputs/apk/debug/*.apk
+          path: |
+            app/build/outputs/apk/debug/*.apk
+            **/app-debug.apk
           if-no-files-found: warn
           retention-days: 5
