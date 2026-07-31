@@ -39,3 +39,4 @@ jobs:
         if-no-files-found: warn
         retention-days: 5        path: app/build/outputs/apk/debug/*.apk
         retention-days: 7
+        
