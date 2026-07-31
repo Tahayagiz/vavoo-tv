@@ -5,17 +5,17 @@ plugins {
 
 android {
     namespace 'com.vavoo.client'
-    compileSdk 34
+    compileSdk 35
 
     defaultConfig {
         applicationId "com.vavoo.client"
         minSdk 26
-        targetSdk 34
+        targetSdk 35
         versionCode 100
-        versionName "2.0.0-portable"
+        versionName "2.0.0-portable-android15"
 
         ndk {
-            abiFilters 'armeabi-v7a'
+            abiFilters 'armeabi-v7a', 'arm64-v8a'
         }
     }
 
