@@ -5,6 +5,7 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+  workflow_dispatch:   # Manuel çalıştırma butonu ekler
 
 jobs:
   build:
@@ -29,6 +30,9 @@ jobs:
     - name: Build Debug APK
       run: ./gradlew assembleDebug --stacktrace
 
-    - name: Find APK files
-      run: find . -type f -name "*.apk"
-  
+    - name: Upload APK
+      uses: actions/upload-artifact@v4
+      with:
+        name: Vavoo-TV-APK
+        path: app/build/outputs/apk/debug/*.apk
+        retention-days: 7
